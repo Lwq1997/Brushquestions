@@ -29,7 +29,7 @@ E:\V1R2\product\fpgadrive.c 1325
 输出例子1:
 fpgadrive.c 1325 1
  */
-public class Test02 {
+public class Question02 {
 //    public static void main(String[] args) {
 //        Scanner in = new Scanner(System.in);
 //        Map<String,Integer> map = new LinkedHashMap<>();

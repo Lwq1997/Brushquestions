@@ -37,7 +37,7 @@ Q 1 5
 5
 9
  */
-public class Test01 {
+public class Question01 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int M = 0;

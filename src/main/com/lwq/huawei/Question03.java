@@ -38,7 +38,7 @@ import java.util.Scanner;
 输出例子1:
 joker JOKER
  */
-public class Test03 {
+public class Question03 {
 //    public static void main(String[] args) {
 //        Scanner sc = new Scanner(System.in);
 //        String[] left,right;

@@ -58,7 +58,7 @@ A
 D
 a
  */
-public class Demo02 {
+public class Question02 {
     class Team {
         String name;
         int grade;
@@ -87,7 +87,7 @@ public class Demo02 {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Demo02 main = new Demo02();
+        Question02 main = new Question02();
         while (sc.hasNext()) {
             String ns = sc.nextLine();
             int n = Integer.valueOf(ns);

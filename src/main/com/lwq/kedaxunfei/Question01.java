@@ -42,7 +42,7 @@ LRRLRL -> LRLRL -> LRRL -> LRL -> LR
 /*
 觉像是找规律题：因为最左的一个LL、最右的一个R永远不会被消去，所以我们需要做的就是最后一个L的位置减去第一个R的位置就是消去的人数。
  */
-public class Demo01 {
+public class Question01 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String queue = sc.next();

@@ -38,7 +38,7 @@ import java.util.*;
 01 204521 204528
 22 204526 204527
  */
-public class Demo03 {
+public class Question03 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Map<String,List<String>> map = new TreeMap<>();
