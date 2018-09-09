@@ -1,40 +1,47 @@
 package main.com.lwq.demo;
 
+import java.util.Scanner;
+
 /**
  * @Author: Lwq
  * @Date: 2018/9/6 10:56
  * @Version 1.0
  * @Describe 大数相乘
  */
-/*
-        9  8
-×       2  1
--------------
-       (9)(8)  <---- 第1趟: 98×1的每一位结果
-  (18)(16)     <---- 第2趟: 98×2的每一位结果
--------------
-  (18)(25)(8)  <---- 这里就是相对位的和，还没有累加进位
- */
 public class Demo02 {
     public static void main(String[] args) {
-        int[] arr1 = new int[]{1,2};
-        int[] arr2 = new int[]{1,2};
-        int[] sum = bigNumberMultiplt(arr1,arr2);
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()){
+            String num1 = sc.next();
+            String num2 = sc.next();
+            System.out.println(multiply(num1, num2));
+        }
     }
+    public static String multiply(String num1, String num2) {
+        int length1 = num1.length();
+        int length2 = num2.length();
+        int[] num = new int[length1+length2];
+        for(int i=0;i<length1;i++) {
+            int n1=num1.charAt(length1-1-i)-'0';
+            //保存进位
+            int jinwei=0;
+            for(int j=0;j<length2;j++) {
+                int n2=num2.charAt(length2-1-j)-'0';
+                jinwei+=num[i+j]+n1*n2;
+                num[i+j]=jinwei%10;
+                jinwei/=10;
+            }
+            num[i+length2]=jinwei;
+        }
 
-    private static int[] bigNumberMultiplt(int[] num1, int[] num2) {
-        int[] result  = new int[num1.length+num2.length];
-        for(int i = 0; i < num1.length;i++){
-            for(int j = 0;j<num2.length;j++){
-                result[i+j+1] += num1[i]*num1[j];
-            }
+        int i=length1+length2-1;
+        while(i>0&&num[i]==0){
+            i--;
         }
-        for(int k = result.length-1;k>0;k--){
-            if(result[k]>10){
-                result[k-1] += result[k]/10;
-                result[k] %= 10;
-            }
+        StringBuilder result=new StringBuilder("");
+        while(i>=0) {
+            result.append(num[i--]);
         }
-        return result;
+        return result.toString();
     }
 }
