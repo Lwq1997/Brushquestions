@@ -27,6 +27,7 @@ public class Demo06 {
 
     private static void fastSort(int[] arr, int left, int right) {
         if (left<right){
+            swap(arr, (int) (left+(Math.random()*(right-left+1))),right);
             int[] p = partition(arr,left,right);
             fastSort(arr,left,p[0]-1);
             fastSort(arr,p[1]+1,right);
