@@ -11,32 +11,24 @@ public class printAllPermutations {
         String test1 = "abc";
         printAllPermutations1(test1);
         System.out.println("======");
-        printAllPermutations2(test1);
-        System.out.println("======");
 
         String test2 = "acc";
         printAllPermutations1(test2);
         System.out.println("======");
-        printAllPermutations2(test2);
-        System.out.println("======");
-    }
-
-    private static void printAllPermutations2(String str) {
-
     }
 
     private static void printAllPermutations1(String str) {
         char[] chs = str.toCharArray();
-        process1(chs, 0);
+        process(chs, 0);
     }
 
-    private static void process1(char[] chs, int i) {
+    private static void process(char[] chs, int i) {
         if(i == chs.length){
             System.out.println(String.valueOf(chs));
         }
         for(int j = i; j < chs.length ;j++){
             swap(chs,i,j);
-            process1(chs,i+1);
+            process(chs,i+1);
         }
     }
 

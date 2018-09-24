@@ -25,6 +25,10 @@ public class ArrayQueue {
         last = 0;
     }
 
+    public boolean isEmpty(){
+        return size==0;
+    }
+
     public Integer peek(){
         if(size==0){
             return null;
