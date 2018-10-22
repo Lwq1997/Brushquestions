@@ -1,5 +1,9 @@
 package main.com.lwq.demo;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * @Author: Lwq
  * @Date: 2018/9/21 13:34
@@ -8,33 +12,36 @@ package main.com.lwq.demo;
  */
 public class printAllPermutations {
     public static void main(String[] args) {
-        String test1 = "abc";
-        printAllPermutations1(test1);
-        System.out.println("======");
-
-        String test2 = "acc";
-        printAllPermutations1(test2);
-        System.out.println("======");
+        printAllPermutations p = new printAllPermutations();
+        System.out.println(p.Permutation("abc").toString());
     }
 
-    private static void printAllPermutations1(String str) {
-        char[] chs = str.toCharArray();
-        process(chs, 0);
-    }
-
-    private static void process(char[] chs, int i) {
-        if(i == chs.length){
-            System.out.println(String.valueOf(chs));
+    public ArrayList<String> Permutation(String str) {
+        List<String> res = new ArrayList<>();
+        if (str != null && str.length() > 0) {
+            PermutationHelper(str.toCharArray(), 0, res);
+            Collections.sort(res);
         }
-        for(int j = i; j < chs.length ;j++){
-            swap(chs,i,j);
-            process(chs,i+1);
+        return (ArrayList)res;
+    }
+
+    public void PermutationHelper(char[] cs, int i, List<String> list) {
+        if (i == cs.length - 1) {
+            String val = String.valueOf(cs);
+            if (!list.contains(val))
+                list.add(val);
+        } else {
+            for (int j = i; j < cs.length; j++) {
+                swap(cs, i, j);
+                PermutationHelper(cs, i+1, list);
+                swap(cs, i, j);
+            }
         }
     }
 
-    public static void swap(char[] chs, int i, int j) {
-        char tmp = chs[i];
-        chs[i] = chs[j];
-        chs[j] = tmp;
+    public void swap(char[] cs, int i, int j) {
+        char temp = cs[i];
+        cs[i] = cs[j];
+        cs[j] = temp;
     }
 }
